@@ -1,0 +1,23 @@
+#include<stdio.h>
+void accept(int *a,int *b)
+{
+  printf("Enter the values for a and b\n");
+  scanf("%d%d",a,b);
+}
+void add(int a,int b,int *sum)
+{
+  *sum=a+b;
+}
+void display(int sum)
+{
+   printf("The SUM is=%d",sum);
+}
+
+void main()
+{
+  int a,b;
+  int sum=0;
+  accept(&a,&b);
+  add(a,b,&sum);
+  display(sum);
+}

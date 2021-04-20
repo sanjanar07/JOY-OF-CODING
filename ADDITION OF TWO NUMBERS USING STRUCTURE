@@ -1,0 +1,16 @@
+#include<stdio.h>
+struct addition
+{
+ int a;
+ int b;
+};
+typedef struct addition nd;
+void main()
+{
+  int sum;
+  nd s;
+  printf("Enter values for a and b\n");
+  scanf("%d%d",&(s.a),&(s.b));
+  sum=s.a+s.b;
+  printf("The SUM is %d\n",sum);
+}

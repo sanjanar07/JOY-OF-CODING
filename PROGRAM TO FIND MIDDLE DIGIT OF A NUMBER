@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+    int num,d,x,z;
+    int c,y;
+    int copy;
+    printf("Enter the number\n");
+    scanf("%d",&num);
+    copy=num;
+     while(num)
+     {
+        c=c+1;
+        num=num/10;
+     }
+     num=copy;
+    if(c%2!=0)
+       {  
+           x=num/(pow(10,(c/2)));  //For ODD digits
+           printf("%d",(x%10));
+       }
+    else
+       {   
+           y=num/(pow(10,((c/2)-1))); //For EVEN digits
+           z=y/10;
+           printf("%d%d",(z%10),(y%10));
+       }
+}

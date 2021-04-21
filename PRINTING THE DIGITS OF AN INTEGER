@@ -1,0 +1,14 @@
+#include <stdio.h>
+void main()
+{
+    int num,d;
+    printf("Enter the integer\n");
+    scanf("%d",&num);
+    printf("The digits are\n");
+    while(num!=0)
+    {
+      d=num%10;
+      printf("%d\n",d);
+      num=num/10;
+    }
+}

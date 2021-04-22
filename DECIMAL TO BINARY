@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+void main()
+{
+    int num,rem,q=0;
+    int i=0;int j=0;
+    int a[10];
+    printf("Enter the number\n");
+    scanf("%d",&num);
+    while(num!=0)
+    {
+        rem=num%2;
+        q=num/2;
+        a[i]=rem;
+        i++;
+        num=q;
+    }
+    printf("The binary number is ");
+    for(j=i-1;j>=0;j--)
+      {
+          printf("%d",a[j]);
+      }
+          
+}

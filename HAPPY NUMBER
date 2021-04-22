@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include<math.h>
+int sq(int n)
+{
+     int a[10];
+     int j,i=0;
+     int res=0;
+     int d;
+     while(n!=0)
+         {
+           d=n%10;
+           a[i]=d;
+           i=i+1;
+           n=n/10;
+         }
+           for(j=i-1;j>=0;j--)
+           {
+               res=res+(pow(a[j],2));
+           }
+    return res;
+}
+
+void main()
+{
+    int num;
+    int d,n,j;
+    int res=0;
+    int i=0;
+
+    printf("Enter the number\n");
+    scanf("%d",&num);
+    n=num;
+    while((res!=1)&&(res!=4)) 
+    {
+       res=sq(num);
+       num=res;
+    } 
+     if(res==1)
+       printf("%d is a HAPPY NUMBER\n",n);
+     else
+       printf("%d is a UNHAPPY number\n",n);
+}
+

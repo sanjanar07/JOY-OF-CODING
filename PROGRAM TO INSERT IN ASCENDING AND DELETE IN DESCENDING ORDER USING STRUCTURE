@@ -1,0 +1,105 @@
+#include<stdio.h>
+struct num
+{
+    int usn;
+    char name[10];
+};
+typedef struct num std;
+
+void asort(std a[10],int n)
+{
+  std temp;
+  for(int i=1;i<=n;i++)
+  {
+      for(int j=1;j<=n-i;j++)
+       {
+           if(a[j].usn>a[j+1].usn)
+           {
+             temp=a[j];
+             a[j]=a[j+1];
+             a[j+1]=temp;
+           }
+       }
+  }   
+}
+
+void dsort(std a[10],int n)
+{
+  std temp;
+  for(int i=1;i<=n;i++)
+  {
+     for(int j=1;j<=n-i;j++)
+     {
+      if(a[j].usn<a[j+1].usn)
+      {
+         temp=a[j];
+         a[j]=a[j+1];
+         a[j+1]=temp;
+      }
+     }
+}
+}
+
+void insert(std a[10],int n)
+{
+    for(int i=1;i<=n;i++)
+    {
+        printf("ENTER THE USN AND NAME OF %d STUDENT\n",i);
+        scanf("%d%s",&a[i].usn,a[i].name);
+    }
+     asort(a,n);
+     for(int i=1;i<=n;i++)
+     {
+        printf("THE USN AND NAME OF %d STUDENT\n",i);
+        printf("%d %s\n",a[i].usn,a[i].name); 
+     }
+}
+
+
+void delete(std a[10],int *n,int del)
+{
+    for(int i=1;i<=*n;i++)
+    {
+        if(a[i].usn==del)
+        {
+          a[i]=a[i+1];
+          *n=*n-1;
+          return;
+        }
+    }
+
+    printf("INFO NOT FOUND\n");
+}
+
+
+
+
+void main()
+{
+    std a[10];
+    int n,ch,del;
+    printf("Enter the number of students\n");
+    scanf("%d",&n);
+    
+    for(;;)
+    {
+        printf("ENTER 1.INSERTION\n2. DELETION\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:insert(a,n);
+                   break;
+            case 2:printf("Enter the students usn whose info is to be deleted\n");
+                   scanf("%d",&del);
+                   delete(a,&n,del);
+                    dsort(a,n);
+                    for(int i=1;i<=n;i++)
+                    {
+                        printf(" THE USN AND NAME OF %d STUDENT\n",i);
+                        printf("%d %s\n",a[i].usn,a[i].name); 
+                    }
+                    break;
+        
+        }
+    }
+}

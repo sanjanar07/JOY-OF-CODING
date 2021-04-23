@@ -1,0 +1,52 @@
+
+#include <stdio.h>
+
+void read_arr(int a[10],int size) 
+{
+    for(int i=0;i<size;i++)
+    {
+         scanf("%d",&a[i]);
+    }
+}
+
+
+void search(int a[10],int size,int ele)
+{
+    int first=-2;int last=-2;
+    for(int i=0;i<size;i++)
+    {
+        if(a[i]==ele&&first!=-2)         
+             last=i+1; 
+        
+        if(a[i]==ele&&first==-2)
+             first=i+1;
+         
+             
+    }
+    if(first!=-2)
+    {
+        printf("SEARCH SUCCESSFUL\n");
+        printf("The first occurence of the key is %d\n",first);
+        if(last!=-2)
+           printf("The last occurence of the key is %d\n",last);
+        else
+           printf("The element is found once\n");
+    }
+    else
+        printf("SEARCH UNSUCCESFUL\n");
+
+}
+
+
+void main()
+{
+    int arr[10];
+    int size,ele;
+    printf("Enter the number of elements \n");
+    scanf("%d", &size);
+    printf("Enter the elements\n");
+    read_arr(arr,size);
+    printf("Emter the element to be searched\n");
+    scanf("%d",&ele);
+    search(arr,size,ele);
+}

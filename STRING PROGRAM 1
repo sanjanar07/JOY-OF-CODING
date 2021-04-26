@@ -1,0 +1,14 @@
+// Write a program to accept and display string (Memory must be allocated dynamically) 
+//with out using functions 
+
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    char *s;
+    s=(char*)malloc(sizeof(char)*10);
+    printf("Enter the string\n");
+    gets(s);
+    printf("The string is\n");
+    puts(s);
+}

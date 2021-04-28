@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void main()
+{
+   char str[20];
+   char str1[5]="done";
+   int res;
+   int max=0,small;
+   printf("ENTER STRING\n");
+   while(1)
+   {
+       gets(str);
+       
+       if(strcmp(str,str1)==0)   //to end when "done" is enetered
+          break;
+       
+       res=atoi(str);
+       
+       if(res==0)     //characters present
+          continue;
+       else           //number present
+         {
+           small=res;
+           if(res>=max)
+               max=res;
+           if(res<=small)
+               small=res;
+         }
+   }
+   printf("Max=%d, smallest=%d",max,small);
+}

@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+
+void maxn(char *str)
+{
+    char ch;
+    int cnt=0,max=0;
+    for(int i=0;i<strlen(str);i++)
+    {
+        for(int j=0;j<strlen(str);j++)
+        {
+            if(str[i]==str[j])
+            {
+                cnt++;
+            }
+        }    
+        if(cnt>max)
+        {
+            max=cnt;
+            ch=str[i];
+        }  
+        cnt=0;
+    }
+  printf("MAx occured character is %c and no of times is %d",ch,max);  
+}
+
+void main()
+{
+    
+    char str[100];
+    printf("ENTER STRING\n");
+    gets(str);
+    maxn(str);
+}

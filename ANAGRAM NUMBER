@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include<string.h>
+
+struct str{
+    char cons[100];
+};
+typedef struct str nd;
+
+void find(nd *p,nd *s)
+{
+    int nf=0;int cnt=0;
+    if(strlen(p->cons)==strlen(s->cons))
+    {
+        for(int i=0;i<strlen(p->cons)-1;i++)
+         {
+           for(int j=0;j<strlen(s->cons)-1;i++)
+           {
+               if(p->cons[i]==s->cons[j])
+               {
+                   cnt++;
+                   break;
+               }
+               else 
+                 continue;
+           }
+           if(cnt==0)
+           {
+               nf=1;              
+               break;
+                
+           }
+         }
+        if(nf==1)
+          printf("NOT ANAGRAM\n");
+        else
+          printf("ANAGRAM");
+    }
+    else
+       printf("STRING MUST CONTAIN SAME NUMBER OF CHARACTERS TO BE A ANAGRAM\n");
+}
+
+void toolower(nd *p)
+{
+   for(int i=0;i<strlen(p->cons);i++)
+   {
+       p->cons[i]=p->cons[i]+32;
+   }
+}
+
+void main()
+{
+    nd p,s;char st[100];char st1[100];
+    
+    printf("Enter two strings\n");
+    gets(st);
+    strcpy(p.cons,st);
+    gets(st1);
+    strcpy(s.cons,st1);
+    
+    toolower(&p);   
+    toolower(&s);
+    
+    find(&p,&s);  
+}

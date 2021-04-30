@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct book
+{
+    char title[20];
+    char author[20];
+    float price;
+    int pages;
+};
+void create(struct book *sd,int *count)
+{
+    printf("ENTER TITLE,AUTHOR,PRICE,PAGES in order\n");
+    for(int i=0;i<count;i++)
+       scanf("%s%s%f%d",sd[i].title,sd[i].author,&(sd[i].price),&(sd[i].pages));
+    
+}
+
+void display(struct book *sd,int count)
+{
+    printf("THE DETAILS ARE: TITLE,AUTHOR,PRICE,PAGES in order\n");
+    for(int i=0;i<count;i++)
+       printf("%s %s %f %d\n",sd[i].title,sd[i].author,sd[i].price,sd[i].pages);
+
+}
+
+void update(struct book *sd,int count)
+{
+    float pri;
+    char bo[20];
+    int res=0;
+    
+    printf("Enter the title which should be updated\n");
+    scanf("%s",bo);
+    
+    for(int i=0;i<count;i++)
+    {
+        res=strcmp(sd[i].title,bo);
+        if(!res)
+        {
+            printf("Enter the price for updation\n");
+            scanf("%f",&pri);
+            sd[i].price=pri;
+            printf("BOOK FOUND AND PRICE UPDATED\n");
+            return;
+        }
+        else
+          continue;
+    }
+    printf("BOOK NOT FOUND\n");
+}
+    
+void main()
+{
+    struct book s[10];
+    int count=0,ch;
+    printf("enter the number of entries\n");
+    scanf("%d",&count);
+    for(;;)
+    {
+        printf("ENTER\n 1.CREATION\n2.UPDATION\n3.DISPLAY\n4.Exit");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:create(s,count);break;
+            case 2:update(s,count);break;
+            case 3:display(s,count);break;   
+            case 4:exit(0);
+        }
+    }
+ }
+
+

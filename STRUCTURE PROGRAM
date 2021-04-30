@@ -1,0 +1,23 @@
+#include <stdio.h>
+struct book
+{
+    long int id;
+    char title[20];
+    char author[20];
+    float price;
+};
+void print(struct book sd)
+{
+    printf("THE BOOK DETAILS ARE\n");
+    printf("%ld  %s  %s  %f",sd.id,sd.title,sd.author,sd.price);
+}
+void main()
+{
+    struct book sd;
+    
+    struct book s={101,"MERCHANT OF VENICE","WILLIAM SHAKESPEARE",2500.0};
+    
+    sd=s;
+    print(sd);
+}
+

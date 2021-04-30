@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include<stdlib.h>
+void insert(int *a,int *top,int *MAX)
+{
+    int ele;
+    if(*top==(*MAX)-1)
+    {
+        printf("STACK FULL SIZE DOUBLING\n");
+        a=(int*)realloc(a,sizeof(int)*(*MAX)*2);
+        *MAX=(*MAX)*2;
+    }
+    printf("ENTER THE ELEMENT TO BE INSERTED\n");
+    scanf("%d",&ele);
+    a[++(*top)]=ele;
+}
+
+void delete(int *a,int *top)
+{
+    if(*top==-1)
+    {
+        printf("STACK EMPTY CANT DELETE.\n");
+        return;
+    }
+    printf("THE ELEMENT DELETED IS %d\n",a[*top]);
+    *top--;
+}
+void display(int *a,int top)
+{
+    if(top==-1)
+    {
+        printf("STACK EMPTY CANT DELETE.\n");
+        return;
+    }
+    printf("The contents of the stack are\n"); 
+    for(int i=0;i<=top;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    
+}
+int main()
+{
+    int ch,top=-1,MAX;
+    int *a;
+    
+    printf("ENTER THE INITIAL SIZE OF THE STACK\n");
+    scanf("%d",&MAX);
+    a=(int*)malloc(sizeof(int)*MAX);
+    
+    for(;;)
+    {
+        printf("1.INSERT\n2.DELETE\n3.DISPLAY\n4.EXIT\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:insert(a,&top,&MAX);
+                   break;
+            case 2:delete(a,&top);
+                   break;
+            case 3:display(a,top);
+                   break;
+            case 4:exit(0);
+        }
+    }
+    return 0;
+}

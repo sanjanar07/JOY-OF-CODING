@@ -1,0 +1,39 @@
+#include <stdio.h>
+int maxm(int a[],int n)
+{
+    int max=0,c=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>max)
+        {
+            max=a[i];
+            c=i;
+        }
+    }
+    printf("THE LARGEST IS %d\n",max);
+    return c;
+}
+void main()
+{
+    int a[10],n,res=0;
+   
+    printf("Enter the number of elements\n");
+    scanf("%d",&n);
+    
+    printf("ENTER array elements\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    res=maxm(a,n);
+    
+    printf("ELEMENTS BEFORE LARGEST ARE\n");
+    for(int j=0;j<res;j++)
+       printf("%d ",a[j]);
+       
+    printf("ELEMENTS AFTER LARGEST ARE\n");
+    for(int k=res+1;k<n;k++)
+       printf("%d ",a[k]);
+   
+}
